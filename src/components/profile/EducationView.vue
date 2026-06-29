@@ -62,9 +62,9 @@ const removeExperience = (id) => {
 }
 </script>
 <template>
-  <div class="mx-auto max-w-7xl p-6 lg:p-8">
+  <div class="mx-auto max-w-7xl p-4 lg:p-8">
     <!-- Header -->
-    <div class="mb-8">
+    <div class="mb-2">
       <h1 class="mb-2 text-2xl font-bold text-slate-900">Education Information</h1>
     </div>
 

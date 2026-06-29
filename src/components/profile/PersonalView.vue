@@ -48,16 +48,10 @@ const resetForm = () => {
 
 <template>
   <div class="bg-gray-50 p-4 md:p-8 min-h-screen">
-    <main
-      class="mx-auto max-w-5xl rounded-lg border border-gray-100 bg-white p-6 shadow-sm md:p-10"
-    >
+    <main class="">
       <!-- Header -->
-      <header class="mb-10">
-        <h1
-          class="relative inline-block text-3xl font-bold text-gray-900 after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:bg-blue-500"
-        >
-          Personal Information
-        </h1>
+      <header class="mb-4">
+        <h1 class="relative inline-block text-3xl font-bold text-gray-900">Personal Information</h1>
       </header>
 
       <div class="grid gap-10 lg:grid-cols-12">
@@ -73,7 +67,7 @@ const resetForm = () => {
                   v-model="profile.fullName"
                   type="text"
                   placeholder="Enter your full name"
-                  class="w-full rounded-md border-gray-300"
+                  class="w-full rounded-md border p-2 border-gray-300"
                 />
               </div>
 
@@ -84,7 +78,7 @@ const resetForm = () => {
                   v-model="profile.email"
                   type="email"
                   placeholder="Enter your email"
-                  class="w-full rounded-md border-gray-300"
+                  class="w-full rounded-md border p-2 border-gray-300"
                 />
               </div>
             </div>
@@ -98,14 +92,17 @@ const resetForm = () => {
                   v-model="profile.phone"
                   type="tel"
                   placeholder="Enter phone number"
-                  class="w-full rounded-md border-gray-300"
+                  class="w-full rounded-md border p-2 border-gray-300"
                 />
               </div>
 
               <div>
                 <label class="mb-1 block text-sm font-semibold"> Location </label>
 
-                <select v-model="profile.location" class="w-full rounded-md border-gray-300">
+                <select
+                  v-model="profile.location"
+                  class="w-full rounded-md border p-2 border-gray-300"
+                >
                   <option value="">Select Location</option>
                   <option value="usa">United States</option>
                   <option value="uk">United Kingdom</option>
@@ -123,14 +120,17 @@ const resetForm = () => {
                 <input
                   v-model="profile.dob"
                   type="date"
-                  class="w-full rounded-md border-gray-300"
+                  class="w-full border p-2 rounded-md border-gray-300"
                 />
               </div>
 
               <div>
                 <label class="mb-1 block text-sm font-semibold"> Gender </label>
 
-                <select v-model="profile.gender" class="w-full rounded-md border-gray-300">
+                <select
+                  v-model="profile.gender"
+                  class="w-full border p-2 rounded-md border-gray-300"
+                >
                   <option value="">Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -147,7 +147,7 @@ const resetForm = () => {
                 v-model="profile.headline"
                 type="text"
                 placeholder="e.g. Senior Web Developer"
-                class="w-full rounded-md border-gray-300"
+                class="w-full border p-2 rounded-md border-gray-300"
               />
             </div>
 
@@ -160,7 +160,7 @@ const resetForm = () => {
                 rows="6"
                 maxlength="500"
                 placeholder="Tell us about yourself..."
-                class="w-full rounded-md border-gray-300"
+                class="w-full border p-2 rounded-md border-gray-300"
               />
 
               <div
@@ -188,7 +188,7 @@ const resetForm = () => {
               <label
                 class="absolute bottom-4 right-4 cursor-pointer rounded-full border-2 border-white bg-blue-600 p-3 text-white shadow-lg hover:bg-blue-700"
               >
-                📷
+                <i class="pi pi-camera text-xl" />
                 <input type="file" accept="image/*" class="hidden" @change="handleUpload" />
               </label>
             </div>

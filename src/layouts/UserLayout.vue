@@ -19,7 +19,7 @@ const open = ref(false)
     <aside
       :class="[
         'bg-slate-900 text-white transition-all duration-300 overflow-hidden sticky top-0 h-screen',
-        sidebarOpen ? 'w-64' : 'w-20',
+        sidebarOpen ? 'w-96' : 'w-20',
       ]"
     >
       <div class="p-4 border-b border-slate-800">
