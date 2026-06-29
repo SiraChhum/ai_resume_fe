@@ -34,6 +34,8 @@ const open = ref(false)
             <router-link
               to="/user/dashboard"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Dashboard</span>
@@ -42,8 +44,10 @@ const open = ref(false)
 
           <li>
             <router-link
-              to="/user/profile"
+              to="/user/resume"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-file" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Resume Management</span>
@@ -52,8 +56,10 @@ const open = ref(false)
 
           <li>
             <router-link
-              to="/orders"
+              to="/user/job-recommendation"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-file" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Job Recommendations</span>
@@ -62,8 +68,10 @@ const open = ref(false)
 
           <li>
             <router-link
-              to="/settings"
+              to="/user/application-management"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-envelope" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Application Management</span>
@@ -73,6 +81,8 @@ const open = ref(false)
             <router-link
               to="/settings"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-map-marker" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Application Tracking</span>
@@ -80,8 +90,10 @@ const open = ref(false)
           </li>
           <li>
             <router-link
-              to="/settings"
+              to="/user/application-tracking"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-heart" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Favorite Jobs</span>
