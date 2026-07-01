@@ -79,7 +79,7 @@ const open = ref(false)
           </li>
           <li>
             <router-link
-              to="/settings"
+              to="/user/application-tracking"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -90,7 +90,7 @@ const open = ref(false)
           </li>
           <li>
             <router-link
-              to="/user/application-tracking"
+              to="/user/favorite-jobs"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"

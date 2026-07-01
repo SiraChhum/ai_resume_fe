@@ -2,6 +2,7 @@
   <!-- If layout is 'none', it renders a plain div instead of a layout component -->
   <component :is="currentLayout">
     <router-view />
+    <LoadingOverlay />
   </component>
 </template>
 
@@ -10,6 +11,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import UserLayout from './layouts/UserLayout.vue'
 import AdminLayout from './layouts/AdminLayout.vue'
+import LoadingOverlay from './components/LoadingOverlay.vue'
 
 const route = useRoute()
 
