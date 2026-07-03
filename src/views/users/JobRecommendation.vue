@@ -72,7 +72,7 @@
           <div class="flex justify-between">
             <!-- Left -->
             <div class="flex gap-5">
-              <img :src="job.logo" class="w-20 h-20 rounded object-cover" />
+              <img :src="job.logo" class="w-50 h-20 rounded object-cover" />
 
               <div>
                 <div class="flex items-center gap-3">
@@ -222,7 +222,7 @@ const jobs = ref([
     type: 'Full Time',
     match: 97,
     deadline: 'June 30, 2026',
-    logo: 'https://placehold.co/80x80/1E3A8A/FFFFFF?text=L',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtoPHu4Wj8CiQMaPgy-HJyEDZAhzVgIyNG9QgTLSqiDrtbMG_sxM12TCj&s=10',
     skills: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
   },
   {
@@ -234,7 +234,7 @@ const jobs = ref([
     type: 'Full Time',
     match: 97,
     deadline: 'July 30, 2026',
-    logo: 'https://placehold.co/80x80/1E3A8A/FFFFFF?text=A',
+    logo: 'https://www.acledasecurities.com.kh/as/assets/listed_company/PPCB/logo.jpg',
     skills: ['React.js', 'Node.js', 'JavaScript', 'TypeScript', 'MongoDB'],
   },
 
@@ -247,7 +247,7 @@ const jobs = ref([
     type: 'Full Time',
     match: 97,
     deadline: 'July 30, 2026',
-    logo: 'https://placehold.co/80x80/F59E0B/FFFFFF?text=C',
+    logo: 'https://cambodia-is-happiness.com/wp-content/uploads/2025/06/ABA-bank-logo-768x768.jpg.webp',
     skills: ['JavaScript', 'TypeScript', 'Node.js', 'AWS'],
   },
 
@@ -260,7 +260,7 @@ const jobs = ref([
     type: 'Full Time',
     match: 97,
     deadline: 'June 30, 2026',
-    logo: 'https://placehold.co/80x80/84CC16/FFFFFF?text=W',
+    logo: 'https://www.vivathgolden-financeplc.com.kh/uploads/partner_photo_1709190768.png',
     skills: ['Node.js', 'Express.js', 'PostgreSQL', 'AWS'],
   },
 ])

@@ -9,6 +9,7 @@
       <div>
         <p>Search Job</p>
       </div>
+      <router-link to="/employer/dashboard">employer</router-link>
       <router-link to="/admin/dashboard">Admin</router-link>
     </div>
     <div class="flex gap-2"></div>

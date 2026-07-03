@@ -38,7 +38,8 @@ const resumes = [
     update: '2 days ago',
     size: '245 KB',
     score: 92,
-    image: 'https://images.unsplash.com/photo-1586282391129-76a6df230234?w=300',
+    image:
+      'https://static.cvwhizz.co.uk/assets/templates/thumbnails/en/withPhoto/munich-736x1041.webp',
     tags: ['React.js', 'Node.js', 'JavaScript', 'TypeScript', 'MongoDB'],
   },
   {
@@ -47,7 +48,8 @@ const resumes = [
     update: '1 day ago',
     size: '205 KB',
     score: 85,
-    image: 'https://images.unsplash.com/photo-1586282391129-76a6df230234?w=300',
+    image:
+      'https://resumesector.com/wp-content/uploads/2024/10/professional-cv-template-free-download-word-and-psd.jpg',
     tags: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
   },
   {
@@ -56,7 +58,8 @@ const resumes = [
     update: '4 days ago',
     size: '295 KB',
     score: 85,
-    image: 'https://images.unsplash.com/photo-1586282391129-76a6df230234?w=300',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWx1zITTLMtRiHUSsKsjAPuLpfd45xL_vfDj6xDqIpT0P0RGDHlvS0ks&s=10',
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'AWS'],
   },
 ]

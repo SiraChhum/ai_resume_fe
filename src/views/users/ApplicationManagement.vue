@@ -97,7 +97,7 @@ TOP CARDS
                 <tr v-for="job in jobs" :key="job.id" class="border-b hover:bg-gray-50">
                   <td class="p-4">
                     <div class="flex gap-4">
-                      <img :src="job.logo" class="w-16 h-16 rounded" />
+                      <img :src="job.logo" class="w-20 h-16 rounded" />
 
                       <div>
                         <h2 class="text-xl">
@@ -246,7 +246,7 @@ const jobs = ref([
     date: '25 May 2025',
     status: 'Under review',
     statusClass: 'bg-orange-100 text-orange-600',
-    logo: 'https://placehold.co/64x64/1e3a8a/ffffff?text=ABA',
+    logo: 'https://cambodia-is-happiness.com/wp-content/uploads/2025/06/ABA-bank-logo-768x768.jpg.webp',
   },
   {
     id: 2,
@@ -257,7 +257,7 @@ const jobs = ref([
     date: '25 May 2025',
     status: 'Interview',
     statusClass: 'bg-indigo-100 text-indigo-600',
-    logo: 'https://placehold.co/64x64/1e3a8a/ffffff?text=ABA',
+    logo: 'https://cambodia-is-happiness.com/wp-content/uploads/2025/06/ABA-bank-logo-768x768.jpg.webp',
   },
   {
     id: 3,
@@ -268,7 +268,7 @@ const jobs = ref([
     date: '25 May 2025',
     status: 'Offered',
     statusClass: 'bg-green-100 text-green-600',
-    logo: 'https://placehold.co/64x64/f59e0b/ffffff?text=A',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtoPHu4Wj8CiQMaPgy-HJyEDZAhzVgIyNG9QgTLSqiDrtbMG_sxM12TCj&s=10',
   },
   {
     id: 4,
@@ -279,7 +279,7 @@ const jobs = ref([
     date: '25 May 2025',
     status: 'Applied',
     statusClass: 'bg-blue-100 text-blue-600',
-    logo: 'https://placehold.co/64x64/f59e0b/ffffff?text=C',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6TAhifBRjglx8Q67MYpdYQ3o6scHfa0lwoKtYlRvsF_k0Uu7AWC6uf6dH&s=10',
   },
   {
     id: 5,
@@ -290,7 +290,7 @@ const jobs = ref([
     date: '25 May 2025',
     status: 'Rejected',
     statusClass: 'bg-red-100 text-red-600',
-    logo: 'https://placehold.co/64x64/84cc16/ffffff?text=W',
+    logo: 'https://www.vivathgolden-financeplc.com.kh/uploads/partner_photo_1709190768.png',
   },
 ])
 </script>

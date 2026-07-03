@@ -10,13 +10,15 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import UserLayout from './layouts/UserLayout.vue'
-import AdminLayout from './layouts/AdminLayout.vue'
+import EmployerLayout from './layouts/EmployerLayout,.vue'
 import LoadingOverlay from './components/LoadingOverlay.vue'
+import AdminLayout from './layouts/AdminLayout.vue'
 
 const route = useRoute()
 
 const layouts = {
   user: UserLayout,
+  employer: EmployerLayout,
   admin: AdminLayout,
   none: 'div', // 👈 Maps 'none' to a plain standard HTML tag
 }

@@ -24,7 +24,7 @@ const sidebarOpen = ref(true)
         <ul class="space-y-2">
           <li>
             <router-link
-              to="/admin/dashboard"
+              to="/employer/dashboard"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -35,68 +35,57 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/company-profile"
+              to="/employer/company-profile"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">User Mananagent </span>
+              <span v-show="sidebarOpen">Company Profile </span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/admin/condidate"
+              to="/employer/condidate"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Company Mananagent</span>
+              <span v-show="sidebarOpen">Candidates</span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/admin/recruiter"
+              to="/employer/recruiter"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Reports</span>
+              <span v-show="sidebarOpen">Recruiters</span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/admin/report"
+              to="/employer/report"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen"> System Monitoring</span>
+              <span v-show="sidebarOpen"> Report</span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/admin/setting"
+              to="/employer/setting"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Settings</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/admin/setting"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Audit Logs</span>
             </router-link>
           </li>
         </ul>
