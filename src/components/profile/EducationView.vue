@@ -74,9 +74,9 @@ const removeExperience = (id) => {
       <div class="p-8 xl:col-span-2">
         <div class="grid gap-6 md:grid-cols-2">
           <div>
-            <label class="mb-2 block font-medium">Job Title</label>
+            <label class="mb-2 block font-medium">Degree</label>
             <input
-              v-model="form.title"
+              v-model="form.degree"
               type="text"
               placeholder="Senior Software Engineer"
               class="w-full rounded-lg border px-4 py-3 focus:border-indigo-500 focus:outline-none"
@@ -84,9 +84,9 @@ const removeExperience = (id) => {
           </div>
 
           <div>
-            <label class="mb-2 block font-medium">Company</label>
+            <label class="mb-2 block font-medium">University / Institute</label>
             <input
-              v-model="form.company"
+              v-model="form.universcity"
               type="text"
               placeholder="TechFlow Solutions"
               class="w-full rounded-lg border px-4 py-3 focus:border-indigo-500 focus:outline-none"

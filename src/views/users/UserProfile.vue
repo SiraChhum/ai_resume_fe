@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import PersonalView from '@/components/profile/PersonalView.vue'
 import EducationView from '@/components/profile/EducationView.vue'
+import ExperienceView from '@/components/profile/ExperienceView.vue'
+import SkillView from '@/components/profile/SkillView.vue'
+import PreferenceView from '@/components/profile/PreferenceView.vue'
+import AccountSettingView from '@/components/profile/AccountSetting.vue'
 const selectedTab = ref('Education')
 </script>
 
@@ -61,16 +65,16 @@ const selectedTab = ref('Education')
       <PersonalView />
     </section>
     <section v-else-if="selectedTab === 'Experience'">
-      <div class="p-6"><p>Experience content goes here.</p></div>
+      <div class="p-6"><ExperienceView /></div>
     </section>
     <section v-else-if="selectedTab === 'Skills'">
-      <div class="p-6"><p>Skills content goes here.</p></div>
+      <div class="p-6"><SkillView /></div>
     </section>
     <section v-else-if="selectedTab === 'Preferences'">
-      <div class="p-6"><p>Preferences content goes here.</p></div>
+      <div class="p-6"><PreferenceView /></div>
     </section>
     <section v-else-if="selectedTab === 'Account Setting'">
-      <div class="p-6"><p>Account Setting content goes here.</p></div>
+      <div class="p-6"><AccountSettingView /></div>
     </section>
   </div>
 </template>
