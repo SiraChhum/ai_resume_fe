@@ -16,6 +16,7 @@ import employerRecruiter from '../views/employers/RecruitersView.vue'
 import employerReport from '../views/employers/ReportView.vue'
 import employerSetting from '../views/employers/SettingView.vue'
 import employerCondidate from '../views/employers/CandidatesView.vue'
+import employerViewApplying from '../views/employers/ViewApplying.vue'
 //Admin
 import adminDashboard from '../views/admins/AdminDashboard.vue'
 
@@ -77,6 +78,16 @@ const router = createRouter({
     {
       path: '/employer/condidate',
       component: employerCondidate,
+      meta: { layout: 'employer' },
+    },
+    {
+      path: '/employer/view-applying',
+      component: employerViewApplying,
+      meta: { layout: 'employer' },
+    },
+    {
+      path: '/employer/create-job',
+      component: () => import('../views/employers/CreateJob.vue'),
       meta: { layout: 'employer' },
     },
     {

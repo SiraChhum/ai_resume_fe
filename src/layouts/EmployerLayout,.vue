@@ -35,24 +35,35 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
+              to="/employer/create-job"
+              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
+            >
+              <i class="pi pi-plus" style="font-size: 1rem"></i>
+              <span v-show="sidebarOpen">Create Job</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link
               to="/employer/company-profile"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
+              <i class="pi pi-building" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Company Profile </span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/employer/condidate"
+              to="/employer/view-applying"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Candidates</span>
+              <i class="pi pi-users" style="font-size: 1rem"></i>
+              <span v-show="sidebarOpen">View Applying</span>
             </router-link>
           </li>
           <li>
