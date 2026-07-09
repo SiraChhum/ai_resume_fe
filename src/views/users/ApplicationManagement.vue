@@ -189,6 +189,12 @@ import { Briefcase, Send, Eye, FileText, BadgeCheck } from 'lucide-vue-next'
 
 const tabs = ['All applications', 'Applied', 'Underview', 'Interview', 'Offer', 'Rejected']
 
+// const search = ref('')
+
+// const filtersSearch = computed(() => {
+//   const search.value
+// })
+
 const cards = ref([
   {
     title: 'total Applications',

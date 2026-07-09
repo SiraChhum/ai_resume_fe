@@ -6,7 +6,7 @@ import ExperienceView from '@/components/profile/ExperienceView.vue'
 import SkillView from '@/components/profile/SkillView.vue'
 import PreferenceView from '@/components/profile/PreferenceView.vue'
 import AccountSettingView from '@/components/profile/AccountSetting.vue'
-const selectedTab = ref('Education')
+const selectedTab = ref('Personal Information')
 </script>
 
 <template>

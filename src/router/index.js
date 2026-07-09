@@ -19,6 +19,12 @@ import employerSetting from '../views/employers/SettingView.vue'
 import employerCondidate from '../views/employers/CandidatesView.vue'
 //Admin
 import adminDashboard from '../views/admins/AdminDashboard.vue'
+import adminReport from '../views/admins/AdminReport.vue'
+import adminSetting from '../views/admins/AdminSetting.vue'
+import adminAuditLog from '../views/admins/AuditLog.vue'
+import adminCompany from '../views/admins/CompanyManagent.vue'
+import adminSystem from '../views/admins/SystemMonitor.vue'
+import userManagement from '../views/admins/UserManagement.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -110,6 +116,36 @@ const router = createRouter({
     {
       path: '/admin/dashboard',
       component: adminDashboard,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/report',
+      component: adminReport,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/setting',
+      component: adminSetting,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/audit-log',
+      component: adminAuditLog,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/cmg',
+      component: adminCompany,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/system-monitoring',
+      component: adminSystem,
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/user-management',
+      component: userManagement,
       meta: { layout: 'admin' },
     },
   ],

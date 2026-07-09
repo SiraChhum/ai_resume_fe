@@ -197,7 +197,7 @@ const saveResume = (resume) => {
                 <button
                   @click="saveResume(resume)"
                   :class="[
-                    ' rounded-lg px-6 py-2 text-white transition duration-300',
+                    ' rounded-lg px-6 py-2 text-white transition duration-300 ',
                     resume.defulted
                       ? 'bg-gray-500 hover:bg-gray-600'
                       : 'bg-green-600 hover:bg-green-700',

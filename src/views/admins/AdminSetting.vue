@@ -1,3 +1,3 @@
 <template>
-  <p>Daahboard</p>
+  <p>Admin Setting</p>
 </template>

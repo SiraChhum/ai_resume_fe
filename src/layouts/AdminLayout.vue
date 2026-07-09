@@ -35,7 +35,7 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/company-profile"
+              to="/admin/user-management"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -46,7 +46,7 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/condidate"
+              to="/admin/cmg"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -57,7 +57,7 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/recruiter"
+              to="/admin/report"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -68,7 +68,7 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/report"
+              to="/admin/system-monitoring"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
@@ -90,7 +90,7 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/setting"
+              to="/admin/audit-log"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"

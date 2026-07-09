@@ -36,7 +36,7 @@
             Profile
           </DropdownMenuItem>
         </router-link>
-        <DropdownMenuItem>
+        <!-- <DropdownMenuItem>
           <i class="pi pi-credit-card mr-2"></i>
           Billing
         </DropdownMenuItem>
@@ -47,7 +47,7 @@
         <DropdownMenuItem>
           <i class="pi pi-calendar mr-2"></i>
           Subscription
-        </DropdownMenuItem>
+        </DropdownMenuItem> -->
         <DropdownMenuSeparator />
         <DropdownMenuItem class="text-red-500">
           <i class="pi pi-sign-out mr-2"></i>
