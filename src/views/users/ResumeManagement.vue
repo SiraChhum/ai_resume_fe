@@ -1,5 +1,7 @@
 <script setup>
+import { ref } from 'vue'
 import 'primeicons/primeicons.css'
+
 const stats = [
   {
     title: 'Total Resume',
@@ -31,13 +33,14 @@ const stats = [
   },
 ]
 
-const resumes = [
+const resumes = ref([
   {
     id: 1,
     title: 'Software Engineer Resume',
     update: '2 days ago',
     size: '245 KB',
     score: 92,
+    saved: false,
     image:
       'https://static.cvwhizz.co.uk/assets/templates/thumbnails/en/withPhoto/munich-736x1041.webp',
     tags: ['React.js', 'Node.js', 'JavaScript', 'TypeScript', 'MongoDB'],
@@ -48,6 +51,7 @@ const resumes = [
     update: '1 day ago',
     size: '205 KB',
     score: 85,
+    saved: false,
     image:
       'https://resumesector.com/wp-content/uploads/2024/10/professional-cv-template-free-download-word-and-psd.jpg',
     tags: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
@@ -58,11 +62,12 @@ const resumes = [
     update: '4 days ago',
     size: '295 KB',
     score: 85,
+    saved: false,
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWx1zITTLMtRiHUSsKsjAPuLpfd45xL_vfDj6xDqIpT0P0RGDHlvS0ks&s=10',
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'AWS'],
   },
-]
+])
 
 const analysis = ['Experience', 'Education', 'Skills', 'Keywords']
 
@@ -92,6 +97,9 @@ const activities = [
     color: '#A855F7',
   },
 ]
+const saveResume = (resume) => {
+  resume.defulted = !resume.defulted
+}
 </script>
 
 <template>
@@ -187,9 +195,15 @@ const activities = [
                 </button>
 
                 <button
-                  class="bg-indigo-600 text-white rounded-xl px-8 py-3 hover:bg-indigo-700 transition"
+                  @click="saveResume(resume)"
+                  :class="[
+                    ' rounded-lg px-6 py-2 text-white transition duration-300',
+                    resume.defulted
+                      ? 'bg-gray-500 hover:bg-gray-600'
+                      : 'bg-green-600 hover:bg-green-700',
+                  ]"
                 >
-                  Set As Default
+                  {{ resume.defulted ? 'Defulted' : 'Set As Default' }}
                 </button>
               </div>
             </div>

@@ -9,6 +9,7 @@ import JobRecommendationView from '../views/users/JobRecommendation.vue'
 import ApplicationManagementView from '../views/users/ApplicationManagement.vue'
 import ApplicationTrackingView from '../views/users/ApplicationTracking.vue'
 import FavoriteJobView from '../views/users/FavoriteJob.vue'
+import JobReView from '@/components/JobDetail/ViewJob.vue'
 //employer
 import employerDashboard from '../views/employers/EmployersDashboard.vue'
 import employerCompany from '../views/employers/CompanyProfile.vue'
@@ -53,6 +54,12 @@ const router = createRouter({
       component: JobRecommendationView,
       meta: { layout: 'user' },
     },
+    {
+      path: '/user/job-recommendation/:id',
+      component: JobReView,
+      meta: { layout: 'user' },
+    },
+
     {
       path: '/user/application-management',
       component: ApplicationManagementView,
@@ -106,6 +113,34 @@ const router = createRouter({
       meta: { layout: 'admin' },
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    const scrollContainer = document.querySelector('main')
+
+    if (savedPosition) {
+      if (scrollContainer) {
+        scrollContainer.scrollTo({
+          top: savedPosition.top,
+          left: savedPosition.left,
+        })
+        return false
+      }
+
+      return savedPosition
+    }
+
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
+        top: 0,
+        left: 0,
+      })
+      return false
+    }
+
+    return {
+      top: 0,
+      left: 0,
+    }
+  },
 })
 
 export default router

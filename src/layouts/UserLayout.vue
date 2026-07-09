@@ -1,8 +1,27 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import HeaderView from '@/layouts/HeaderView.vue'
+import { useLoading } from '@/composables/useMainLoading'
+import LoadingMain from '@/components/LoadingMain.vue'
 
 const sidebarOpen = ref(true)
+const route = useRoute()
+
+const { showLoading, hideLoading } = useLoading()
+
+watch(
+  () => route.fullPath,
+  async () => {
+    showLoading()
+
+    // simulate loading
+    await new Promise((resolve) => setTimeout(resolve, 700))
+
+    hideLoading()
+  },
+  { immediate: false },
+)
 </script>
 
 <template>
@@ -49,9 +68,10 @@ const sidebarOpen = ref(true)
           <li>
             <router-link
               to="/user/job-recommendation"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
+              :class="[
+                'flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800',
+                route.path.startsWith('/user/job-recommendation') ? 'bg-blue-600 text-white' : '',
+              ]"
             >
               <i class="pi pi-file" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">Job Recommendations</span>
@@ -101,8 +121,10 @@ const sidebarOpen = ref(true)
       <HeaderView @toggleSidebar="sidebarOpen = !sidebarOpen" />
 
       <!-- Main -->
-      <main class="flex-1 p-2 overflow-y-auto min-h-0">
-        <slot />
+      <main class="flex-1 min-h-0 overflow-y-auto">
+        <LoadingMain>
+          <slot />
+        </LoadingMain>
       </main>
     </div>
   </div>

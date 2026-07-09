@@ -42,6 +42,8 @@
               </svg>
 
               <input
+                v-model="search"
+                type="text"
                 placeholder="Search jobs..."
                 class="w-full border border-indigo-400 rounded-full pl-12 pr-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
               />
@@ -65,14 +67,14 @@
 
         <!-- Jobs -->
         <div
-          v-for="job in jobs"
+          v-for="job in filteredJobs"
           :key="job.id"
           class="bg-white rounded-xl border border-indigo-200 p-5 mb-5"
         >
           <div class="flex justify-between">
             <!-- Left -->
             <div class="flex gap-5">
-              <img :src="job.logo" class="w-50 h-20 rounded object-cover" />
+              <img :src="job.logo" class="w-38 h-5 rounded" />
 
               <div>
                 <div class="flex items-center gap-3">
@@ -118,9 +120,22 @@
             <div class="flex flex-col gap-3">
               <button class="bg-indigo-600 text-white rounded-lg px-6 py-2">Apply Now</button>
 
-              <button class="bg-cyan-500 text-white rounded-lg px-6 py-2">View Details</button>
+              <button
+                @click="viewDetail(job.id)"
+                class="bg-cyan-500 text-white rounded-lg px-6 py-2"
+              >
+                View Details
+              </button>
 
-              <button class="bg-green-600 text-white rounded-lg px-6 py-2">Save</button>
+              <button
+                @click="saveJob(job)"
+                :class="[
+                  ' rounded-lg px-6 py-2 text-white transition duration-300',
+                  job.saved ? 'bg-gray-500 hover:bg-gray-600' : 'bg-green-600 hover:bg-green-700',
+                ]"
+              >
+                {{ job.saved ? 'Saved' : 'Save' }}
+              </button>
             </div>
           </div>
         </div>
@@ -210,8 +225,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
+import { useRouter } from 'vue-router'
+
+const search = ref('')
+
+const filteredJobs = computed(() => {
+  return jobs.value.filter((job) => job.title.toLowerCase().includes(search.value.toLowerCase()))
+})
+
+const router = useRouter()
+
+const viewDetail = (id) => {
+  router.push(`/user/job-recommendation/${id}`)
+}
 const jobs = ref([
   {
     id: 1,
@@ -249,19 +277,6 @@ const jobs = ref([
     deadline: 'July 30, 2026',
     logo: 'https://cambodia-is-happiness.com/wp-content/uploads/2025/06/ABA-bank-logo-768x768.jpg.webp',
     skills: ['JavaScript', 'TypeScript', 'Node.js', 'AWS'],
-  },
-
-  {
-    id: 4,
-    title: 'Backend Developer (Node.js)',
-    company: 'Wing Bank',
-    category: 'Bank',
-    location: 'Phnom Penh, Cambodia',
-    type: 'Full Time',
-    match: 97,
-    deadline: 'June 30, 2026',
-    logo: 'https://www.vivathgolden-financeplc.com.kh/uploads/partner_photo_1709190768.png',
-    skills: ['Node.js', 'Express.js', 'PostgreSQL', 'AWS'],
   },
 ])
 
@@ -322,4 +337,13 @@ const reasons = ref([
   'Companies are actively hiring',
   'High response rate jobs',
 ])
+
+const isSaved = ref(false)
+
+const saveJob = (jobs) => {
+  // Your save logic here
+  jobs.saved = !jobs.saved
+
+  isSaved.value = true
+}
 </script>

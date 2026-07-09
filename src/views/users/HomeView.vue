@@ -15,7 +15,7 @@
               class="w-10 h-10 rounded-lg flex items-center justify-center text-lg"
               :class="iconBoxClass(stat.color)"
             >
-              <i :class="stat.icon"></i>
+              <component :is="stat.icon" class="w-6 h-6 text-indigo-600" />
             </div>
             <div>
               <span class="text-xs text-[#64748B] block">{{ stat.label }}</span>
@@ -87,6 +87,17 @@
                 >
                   Apply Now
                 </button>
+                <!-- <div
+                  :class="isActive ? 'bg-blue-500 text-white' : 'bg-white text-black'"
+                  class="p-8 min-h-screen transition-all duration-300"
+                >
+                  <button
+                    @click="toggleBackground($event)"
+                    class="px-4 py-2 font-bold bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
+                  >
+                    Save
+                  </button>
+                </div> -->
               </div>
             </div>
           </div>
@@ -242,6 +253,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { FileText, Briefcase, Target, Clock3 } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -251,17 +263,35 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog'
 
 const open = ref(false)
 const stats = ref([
-  { label: 'Total Applications', value: 0, icon: 'fa-solid fa-file-invoice', color: 'purple' },
-  { label: 'Active Jobs', value: 0, icon: 'fa-solid fa-briefcase', color: 'blue' },
-  { label: 'Match Rate', value: 0, icon: 'fa-solid fa-bullseye', color: 'green' },
-  { label: 'Avg. Response Time', value: 0, icon: 'fa-solid fa-clock', color: 'orange' },
+  {
+    label: 'Total Applications',
+    value: 0,
+    icon: FileText,
+    color: 'purple',
+  },
+  {
+    label: 'Active Jobs',
+    value: 0,
+    icon: Briefcase,
+    color: 'blue',
+  },
+  {
+    label: 'Match Rate',
+    value: 0,
+    icon: Target,
+    color: 'green',
+  },
+  {
+    label: 'Avg. Response Time',
+    value: 0,
+    icon: Clock3,
+    color: 'orange',
+  },
 ])
-
 const iconBoxClass = (color) => {
   const map = {
     purple: 'bg-[#F3E8FF] text-[#9333EA]',
@@ -339,4 +369,14 @@ const stepIconClass = (status) => {
 }
 
 const recentApplications = ref([])
+
+// // 2. Create a reactive boolean state
+// const isChanged = ref(false)
+
+// const toggleBackground = (event) => {
+//   console.log('Clicked element:', event.target)
+
+//   // 3. Toggle the boolean value (true/false)
+//   isChanged.value = !isChanged.value
+// }
 </script>
