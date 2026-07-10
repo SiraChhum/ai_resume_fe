@@ -44,17 +44,7 @@ const sidebarOpen = ref(true)
               <span v-show="sidebarOpen">Create Job</span>
             </router-link>
           </li>
-          <li>
-            <router-link
-              to="/employer/company-profile"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-building" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Company Profile </span>
-            </router-link>
-          </li>
+
           <li>
             <router-link
               to="/employer/view-applying"
@@ -64,39 +54,6 @@ const sidebarOpen = ref(true)
             >
               <i class="pi pi-users" style="font-size: 1rem"></i>
               <span v-show="sidebarOpen">View Applying</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/employer/recruiter"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Recruiters</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/employer/report"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen"> Report</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/employer/setting"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Settings</span>
             </router-link>
           </li>
         </ul>

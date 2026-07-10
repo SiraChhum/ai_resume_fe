@@ -11,11 +11,7 @@ import ApplicationTrackingView from '../views/users/ApplicationTracking.vue'
 import FavoriteJobView from '../views/users/FavoriteJob.vue'
 //employer
 import employerDashboard from '../views/employers/EmployersDashboard.vue'
-import employerCompany from '../views/employers/CompanyProfile.vue'
-import employerRecruiter from '../views/employers/RecruitersView.vue'
-import employerReport from '../views/employers/ReportView.vue'
-import employerSetting from '../views/employers/SettingView.vue'
-import employerCondidate from '../views/employers/CandidatesView.vue'
+
 import employerViewApplying from '../views/employers/ViewApplying.vue'
 //Admin
 import adminDashboard from '../views/admins/AdminDashboard.vue'
@@ -75,11 +71,7 @@ const router = createRouter({
       component: employerDashboard,
       meta: { layout: 'employer' },
     },
-    {
-      path: '/employer/condidate',
-      component: employerCondidate,
-      meta: { layout: 'employer' },
-    },
+
     {
       path: '/employer/view-applying',
       component: employerViewApplying,
@@ -90,26 +82,7 @@ const router = createRouter({
       component: () => import('../views/employers/CreateJob.vue'),
       meta: { layout: 'employer' },
     },
-    {
-      path: '/employer/company-profile',
-      component: employerCompany,
-      meta: { layout: 'employer' },
-    },
-    {
-      path: '/employer/recruiter',
-      component: employerRecruiter,
-      meta: { layout: 'employer' },
-    },
-    {
-      path: '/employer/report',
-      component: employerReport,
-      meta: { layout: 'employer' },
-    },
-    {
-      path: '/employer/setting',
-      component: employerSetting,
-      meta: { layout: 'employer' },
-    },
+
     //admin
     {
       path: '/admin/dashboard',

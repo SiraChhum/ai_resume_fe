@@ -1,3 +1,3 @@
 <template>
-  <p>Condidate</p>
+  <p>NewTwo</p>
 </template>
