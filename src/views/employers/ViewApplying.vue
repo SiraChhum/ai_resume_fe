@@ -97,13 +97,13 @@
               </p>
             </section>
             <section v-else-if="selectedTab === 'NewTwo'">
-              <p>NewTwo</p>
+              <NewTwo @select="onSelect" />
             </section>
             <section v-else-if="selectedTab === 'ShortList'">
-              <p>ShortList</p>
+              <ShortList @select="onShortSelect" />
             </section>
             <section v-else-if="selectedTab === 'Interview'">
-              <p>Interview</p>
+              <Interview @select="onInterviewSelect" />
             </section>
           </div>
         </div>
@@ -117,17 +117,17 @@
         </section>
         <section v-if="selectedTab === 'NewTwo'">
           <p>
-            <NewtwoRight />
+            <NewRight ref="newRightRef" />
           </p>
         </section>
         <section v-if="selectedTab === 'ShortList'">
           <p>
-            <ShortlistRight />
+            <ShortlistRight ref="shortlistRightRef" />
           </p>
         </section>
         <section v-if="selectedTab === 'Interview'">
           <p>
-            <InterviewRight />
+            <InterviewRight ref="interviewRightRef" />
           </p>
         </section>
       </aside>
@@ -140,8 +140,11 @@ import { computed, ref } from 'vue'
 import AllApply from '@/components/ViewApply/AllApply.vue'
 import AllApplyRight from '@/components/ViewApply/AllApplyRight.vue'
 import InterviewRight from '@/components/ViewApply/InterviewRight.vue'
-import NewtwoRight from '@/components/ViewApply/NewRight.vue'
+// import Interview from '@/components/ViewApply/Interview.vue'
+import NewRight from '@/components/ViewApply/NewRight.vue'
 import ShortlistRight from '@/components/ViewApply/ShortlistRight.vue'
+import NewTwo from '@/components/ViewApply/NewTwo.vue'
+import ShortList from '@/components/ViewApply/ShortList.vue'
 
 const jobs = ref([
   { title: 'UI/UX Designer', status: 'Open' },
@@ -167,6 +170,29 @@ const applications = ref([
     skills: ['Vue', 'Tailwind', 'JavaScript'],
   },
 ])
+
+const newRightRef = ref(null)
+const shortlistRightRef = ref(null)
+
+function onSelect(app) {
+  if (newRightRef.value && typeof newRightRef.value.setSelected === 'function') {
+    newRightRef.value.setSelected(app)
+  }
+}
+
+function onShortSelect(app) {
+  if (shortlistRightRef.value && typeof shortlistRightRef.value.setSelected === 'function') {
+    shortlistRightRef.value.setSelected(app)
+  }
+}
+
+const interviewRightRef = ref(null)
+
+function onInterviewSelect(app) {
+  if (interviewRightRef.value && typeof interviewRightRef.value.setSelected === 'function') {
+    interviewRightRef.value.setSelected(app)
+  }
+}
 
 const statusCounts = computed(() => ({
   new: applications.value.length,
