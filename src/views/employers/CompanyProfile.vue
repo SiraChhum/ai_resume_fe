@@ -1,3 +1,3 @@
 <template>
-  <p>Company 1</p>
+  <p>Company1.1</p>
 </template>
