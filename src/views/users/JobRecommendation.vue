@@ -228,6 +228,13 @@
 import { ref, computed } from 'vue'
 
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
+
+const showSuccess = () => {
+  toast.success('Saved successfully!')
+}
 
 const search = ref('')
 
@@ -345,5 +352,6 @@ const saveJob = (jobs) => {
   jobs.saved = !jobs.saved
 
   isSaved.value = true
+  showSuccess()
 }
 </script>

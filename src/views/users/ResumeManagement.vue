@@ -1,6 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 import 'primeicons/primeicons.css'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
+
+// const showSuccess = () => {
+//   toast.success('Set as default successfully!')
+// }
+// const showInfo = () => {
+//   toast.info('Unset as default successfully')
+// }
 
 const stats = [
   {
@@ -99,6 +109,11 @@ const activities = [
 ]
 const saveResume = (resume) => {
   resume.defulted = !resume.defulted
+  if (resume.defulted) {
+    toast.success('Set as default successfully!')
+  } else {
+    toast.info('Unset as default successfully')
+  }
 }
 </script>
 

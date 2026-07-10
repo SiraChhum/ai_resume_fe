@@ -77,10 +77,8 @@ const saveFiles = () => {
   <div class="flex justify-center items-center p-6">
     <div class="w-fulloverflow-hidden">
       <!-- Header -->
-      <div class="bg-blue-600 text-white px-6 py-5 flex justify-between items-center">
+      <div class="px-6 py-5 flex justify-between items-center">
         <h2 class="text-xl font-bold">UPLOAD FILES</h2>
-
-        <button class="text-3xl opacity-70 hover:opacity-100">×</button>
       </div>
 
       <!-- Content -->
