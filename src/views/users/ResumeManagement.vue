@@ -329,20 +329,20 @@ const saveResume = (resume) => {
         </div>
       </div>
       <Sheet v-model:open="open">
-        <SheetContent>
-          <form
-            v-if="selectPreview"
-            class="flex justify-center items-center p-6 font-bold size-2xl"
-          >
-            <p>{{ selectPreview.title }}</p>
+        <SheetContent
+          v-if="selectPreview"
+          class="flex justify-center items-center p-6 font-bold size-2xl"
+        >
+          <form>
+            <img :src="selectPreview.image" />
           </form>
 
-          <SheetFooter>
+          <!-- <SheetFooter>
             <Button type="submit"> Save changes </Button>
             <SheetClose as-child>
               <Button variant="outline"> Close </Button>
             </SheetClose>
-          </SheetFooter>
+          </SheetFooter> -->
         </SheetContent>
       </Sheet>
     </div>

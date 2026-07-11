@@ -232,15 +232,12 @@ import { useToast } from 'vue-toastification'
 
 const toast = useToast()
 
-const showSuccess = () => {
-  toast.success('Saved successfully!')
-}
-
 const search = ref('')
 
 const filteredJobs = computed(() => {
   return jobs.value.filter((job) => job.title.toLowerCase().includes(search.value.toLowerCase()))
 })
+console.log(filteredJobs)
 
 const router = useRouter()
 
@@ -350,8 +347,11 @@ const isSaved = ref(false)
 const saveJob = (jobs) => {
   // Your save logic here
   jobs.saved = !jobs.saved
-
   isSaved.value = true
-  showSuccess()
+  if (jobs.saved) {
+    toast.success('Saved')
+  } else {
+    toast.info('Unsave!')
+  }
 }
 </script>

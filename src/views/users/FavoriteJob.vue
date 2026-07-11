@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const stats = ref([
   {
@@ -172,93 +172,74 @@ const activeFilter = ref('All')
       </div>
     </div>
 
-    <div class="mt-6 space-y-5">
-      <div
-        v-for="job in jobs"
-        :key="job.id"
-        class="rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl"
-      >
-        <div class="flex p-6">
+    <div class="mt-3 space-y-2">
+      <div v-for="job in jobs" :key="job.id" class="rounded-xl bg-white shadow hover:shadow-md">
+        <div class="flex items-center p-3">
           <!-- Logo -->
-
           <div
             :class="job.logoBg"
-            class="flex h-28 w-28 shrink-0 items-center justify-center rounded-xl text-4xl font-bold text-white"
+            class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg text-lg font-bold text-white"
           >
             {{ job.logo }}
           </div>
 
           <!-- Content -->
-
-          <div class="ml-6 flex-1">
-            <!-- Top -->
-
+          <div class="ml-3 flex-1">
             <div class="flex items-start justify-between">
               <div>
-                <h2 class="text-3xl font-semibold text-gray-900">
+                <h2 class="text-lg font-semibold leading-tight">
                   {{ job.title }}
                 </h2>
 
-                <p class="mt-1 text-2xl text-gray-600">
+                <p class="text-sm text-gray-500">
                   {{ job.company }}
                 </p>
               </div>
 
-              <div class="flex items-center gap-5">
-                <span class="text-sm text-gray-400"> 🕒 {{ job.saved }} </span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400">
+                  {{ job.saved }}
+                </span>
 
-                <button class="text-3xl text-red-500 transition hover:scale-110">❤</button>
+                <button class="text-lg text-red-500">❤</button>
               </div>
             </div>
 
-            <!-- Info -->
-
-            <div class="mt-3 flex flex-wrap items-center gap-6 text-gray-500">
+            <div class="mt-1 flex flex-wrap gap-3 text-xs text-gray-500">
               <span>📍 {{ job.location }}</span>
-
               <span>{{ job.type }}</span>
-
               <span>{{ job.mode }}</span>
             </div>
 
-            <!-- Salary -->
+            <div class="mt-1 flex items-center justify-between">
+              <p class="text-base font-bold text-green-600">
+                {{ job.salary }}
+              </p>
 
-            <p class="mt-4 text-2xl font-bold text-green-600">
-              {{ job.salary }}
-            </p>
+              <div class="flex gap-2">
+                <button class="rounded-md bg-indigo-600 px-3 py-1 text-xs text-white">Apply</button>
+
+                <button
+                  class="rounded-md border border-indigo-600 px-3 py-1 text-xs text-indigo-600"
+                >
+                  Detail
+                </button>
+
+                <button class="flex h-7 w-7 items-center justify-center rounded-md border">
+                  🗑
+                </button>
+              </div>
+            </div>
 
             <!-- Skills -->
-
-            <div class="mt-4 flex flex-wrap gap-2">
+            <div class="mt-1 flex flex-wrap gap-1">
               <span
                 v-for="skill in job.skills"
                 :key="skill"
-                class="rounded-md bg-gray-200 px-3 py-1 text-xs text-gray-600"
+                class="rounded bg-gray-100 px-2 py-0.5 text-[10px] text-gray-600"
               >
                 {{ skill }}
               </span>
-            </div>
-
-            <!-- Buttons -->
-
-            <div class="mt-6 flex justify-end gap-3">
-              <button
-                class="rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
-              >
-                Apply Now
-              </button>
-
-              <button
-                class="rounded-lg border border-indigo-600 px-6 py-2 text-sm font-medium text-indigo-600 transition hover:bg-indigo-600 hover:text-white"
-              >
-                View Detail
-              </button>
-
-              <button
-                class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 text-gray-500 transition hover:bg-red-50 hover:text-red-500"
-              >
-                🗑
-              </button>
             </div>
           </div>
         </div>

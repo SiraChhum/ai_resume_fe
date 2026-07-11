@@ -47,7 +47,9 @@ TOP CARDS
           <div class="flex gap-3">
             <div class="relative">
               <input
-                class="border border-indigo-500 rounded-full pl-10 pr-4 py-2 w-72 outline-none"
+                v-model="search"
+                type="text"
+                class="border border-indigo-500 rounded-full pl-10 pr-4 py-2 w-72 outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Search Application"
               />
 
@@ -94,7 +96,7 @@ TOP CARDS
               </thead>
 
               <tbody>
-                <tr v-for="job in jobs" :key="job.id" class="border-b hover:bg-gray-50">
+                <tr v-for="job in filteredJobs" :key="job.id" class="border-b hover:bg-gray-50">
                   <td class="p-4">
                     <div class="flex gap-4">
                       <img :src="job.logo" class="w-20 h-16 rounded" />
@@ -183,17 +185,19 @@ TOP CARDS
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import { Briefcase, Send, Eye, FileText, BadgeCheck } from 'lucide-vue-next'
 
 const tabs = ['All applications', 'Applied', 'Underview', 'Interview', 'Offer', 'Rejected']
 
-// const search = ref('')
+const search = ref('')
 
-// const filtersSearch = computed(() => {
-//   const search.value
-// })
+const filteredJobs = computed(() => {
+  return jobs.value.filter((job) => job.title.toLowerCase().includes(search.value.toLowerCase()))
+})
+
+console.log(filteredJobs)
 
 const cards = ref([
   {
