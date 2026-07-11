@@ -56,6 +56,17 @@ const sidebarOpen = ref(true)
               <span v-show="sidebarOpen">View Applying</span>
             </router-link>
           </li>
+          <li>
+            <router-link
+              to="/employer/user-management"
+              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
+            >
+              <i class="pi pi-users" style="font-size: 1rem"></i>
+              <span v-show="sidebarOpen">User Management</span>
+            </router-link>
+          </li>
         </ul>
       </nav>
     </aside>

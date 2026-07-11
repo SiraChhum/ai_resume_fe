@@ -1,3 +1,3 @@
 <template>
-  <p>Daahboard</p>
+  <p>Application</p>
 </template>

@@ -1,3 +1,3 @@
 <template>
-  <p>Daahboard</p>
+  <p>Authgce</p>
 </template>

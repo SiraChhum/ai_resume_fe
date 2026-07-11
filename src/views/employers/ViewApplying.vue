@@ -67,14 +67,14 @@
             @click="selectedTab = 'Hired'"
             class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
-            Interview
+            Hired
           </button>
           <button
             :class="{ 'text-indigo-600 font-semibold': selectedTab === 'Reject' }"
             @click="selectedTab = 'Reject'"
             class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
-            Interview
+            Reject
           </button>
         </div>
 
