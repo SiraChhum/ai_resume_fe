@@ -190,6 +190,9 @@ const selectedTab = ref('AllApply')
 
 const newRightRef = ref(null)
 const shortlistRightRef = ref(null)
+const interviewRightRef = ref(null)
+const hiredRightRef = ref(null)
+const rejectRightRef = ref(null)
 
 function onSelect(app) {
   if (newRightRef.value && typeof newRightRef.value.setSelected === 'function') {
@@ -203,11 +206,21 @@ function onShortSelect(app) {
   }
 }
 
-const interviewRightRef = ref(null)
-
 function onInterviewSelect(app) {
   if (interviewRightRef.value && typeof interviewRightRef.value.setSelected === 'function') {
     interviewRightRef.value.setSelected(app)
+  }
+}
+
+function onHiredSelect(app) {
+  if (hiredRightRef.value && typeof hiredRightRef.value.setSelected === 'function') {
+    hiredRightRef.value.setSelected(app)
+  }
+}
+
+function onRejectSelect(app) {
+  if (rejectRightRef.value && typeof rejectRightRef.value.setSelected === 'function') {
+    rejectRightRef.value.setSelected(app)
   }
 }
 </script>
