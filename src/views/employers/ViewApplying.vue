@@ -33,36 +33,48 @@
           </div>
         </div>
 
-        <div
-          class="mt-6 flex flex-wrap items-center gap-3 rounded-[28px] border border-slate-200 bg-white p-4"
-        >
+        <div class="mt-4 flex flex-wrap items-center border-slate-200 bg-white p-4">
           <button
             :class="{ 'text-indigo-600 font-semibold': selectedTab === 'AllApply' }"
             @click="selectedTab = 'AllApply'"
-            class="rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition"
+            class="px-4 py-3 text-sm font-semibold hover:bg-slate-50 transition"
           >
-            All Applicants {{ applications.length }}
+            All Applicants
           </button>
           <button
             :class="{ 'text-indigo-600 font-semibold': selectedTab === 'NewTwo' }"
             @click="selectedTab = 'NewTwo'"
-            class="rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
-            New {{ statusCounts.new }}
+            New
           </button>
           <button
             :class="{ 'text-indigo-600 font-semibold': selectedTab === 'ShortList' }"
             @click="selectedTab = 'ShortList'"
-            class="rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
-            Shortlisted {{ statusCounts.shortlisted }}
+            Shortlisted
           </button>
           <button
             :class="{ 'text-indigo-600 font-semibold': selectedTab === 'Interview' }"
             @click="selectedTab = 'Interview'"
-            class="rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+            class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
-            Interview {{ statusCounts.interview }}
+            Interview
+          </button>
+          <button
+            :class="{ 'text-indigo-600 font-semibold': selectedTab === 'Hired' }"
+            @click="selectedTab = 'Hired'"
+            class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+          >
+            Interview
+          </button>
+          <button
+            :class="{ 'text-indigo-600 font-semibold': selectedTab === 'Reject' }"
+            @click="selectedTab = 'Reject'"
+            class="bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+          >
+            Interview
           </button>
         </div>
 
@@ -105,6 +117,12 @@
             <section v-else-if="selectedTab === 'Interview'">
               <Interview @select="onInterviewSelect" />
             </section>
+            <section v-else-if="selectedTab === 'Hired'">
+              <HiredView @select="onHiredSelect" />
+            </section>
+            <section v-else-if="selectedTab === 'Reject'">
+              <RejectView @select="onRejectSelect" />
+            </section>
           </div>
         </div>
       </section>
@@ -130,13 +148,23 @@
             <InterviewRight ref="interviewRightRef" />
           </p>
         </section>
+        <section v-if="selectedTab === 'Hired'">
+          <p>
+            <HiredRight ref="hiredRightRef" />
+          </p>
+        </section>
+        <section v-if="selectedTab === 'Reject'">
+          <p>
+            <RejectRight ref="rejectRightRef" />
+          </p>
+        </section>
       </aside>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import AllApply from '@/components/ViewApply/AllApply.vue'
 import AllApplyRight from '@/components/ViewApply/AllApplyRight.vue'
 import InterviewRight from '@/components/ViewApply/InterviewRight.vue'
@@ -145,6 +173,10 @@ import NewRight from '@/components/ViewApply/NewRight.vue'
 import ShortlistRight from '@/components/ViewApply/ShortlistRight.vue'
 import NewTwo from '@/components/ViewApply/NewTwo.vue'
 import ShortList from '@/components/ViewApply/ShortList.vue'
+import HiredRight from '@/components/ViewApply/HiredRight.vue'
+import RejectRight from '@/components/ViewApply/RejectRight.vue'
+import HiredView from '@/components/ViewApply/HiredView.vue'
+import RejectView from '@/components/ViewApply/RejectView.vue'
 
 const jobs = ref([
   { title: 'UI/UX Designer', status: 'Open' },
@@ -155,21 +187,6 @@ const jobs = ref([
 const selectedJob = ref(jobs.value[0].title)
 const search = ref('')
 const selectedTab = ref('AllApply')
-
-const applications = ref([
-  {
-    id: 1,
-    name: 'Jane Doe',
-    email: 'jane.doe@example.com',
-    skills: ['Figma', 'Illustrator', 'Sketch'],
-  },
-  {
-    id: 2,
-    name: 'John Smith',
-    email: 'john.smith@example.com',
-    skills: ['Vue', 'Tailwind', 'JavaScript'],
-  },
-])
 
 const newRightRef = ref(null)
 const shortlistRightRef = ref(null)
@@ -193,10 +210,4 @@ function onInterviewSelect(app) {
     interviewRightRef.value.setSelected(app)
   }
 }
-
-const statusCounts = computed(() => ({
-  new: applications.value.length,
-  shortlisted: 2,
-  interview: 1,
-}))
 </script>

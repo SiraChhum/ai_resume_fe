@@ -37,7 +37,7 @@
       </button>
     </div>
   </div>
-  <div v-else class="w-[320px] text-sm text-slate-500">Short list</div>
+  <div v-else class="w-[320px] text-sm text-slate-500">Reject</div>
 </template>
 
 <script setup>
