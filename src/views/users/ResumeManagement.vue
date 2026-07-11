@@ -2,8 +2,26 @@
 import { ref } from 'vue'
 import 'primeicons/primeicons.css'
 import { useToast } from 'vue-toastification'
+import { Button } from '@/components/ui/button'
+
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet'
+const open = ref(false)
 
 const toast = useToast()
+const selectPreview = ref(null)
+
+const handleDetailPreview = (resume) => {
+  selectPreview.value = resume
+  open.value = true
+}
 
 // const showSuccess = () => {
 //   toast.success('Set as default successfully!')
@@ -123,7 +141,7 @@ const saveResume = (resume) => {
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
       <div
         v-for="card in stats"
-        :key="card.title"
+        :key="card.id"
         class="rounded-2xl bg-white shadow-md px-6 py-5 flex items-center justify-between"
       >
         <div class="flex items-center gap-4">
@@ -204,6 +222,7 @@ const saveResume = (resume) => {
               <!-- Buttons -->
               <div class="flex lg:flex-col gap-3 justify-center">
                 <button
+                  @click="handleDetailPreview(resume)"
                   class="border-2 border-indigo-600 text-indigo-600 font-medium rounded-xl px-8 py-3 hover:bg-indigo-50 transition"
                 >
                   Preview
@@ -309,6 +328,23 @@ const saveResume = (resume) => {
           </div>
         </div>
       </div>
+      <Sheet v-model:open="open">
+        <SheetContent>
+          <form
+            v-if="selectPreview"
+            class="flex justify-center items-center p-6 font-bold size-2xl"
+          >
+            <p>{{ selectPreview.title }}</p>
+          </form>
+
+          <SheetFooter>
+            <Button type="submit"> Save changes </Button>
+            <SheetClose as-child>
+              <Button variant="outline"> Close </Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </div>
   </div>
 </template>
