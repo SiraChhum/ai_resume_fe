@@ -12,12 +12,11 @@ import FavoriteJobView from '../views/users/FavoriteJob.vue'
 import JobReView from '@/components/JobDetail/ViewJob.vue'
 //employer
 import employerDashboard from '../views/employers/EmployersDashboard.vue'
-import employerCompany from '../views/employers/CompanyProfile.vue'
-import employerRecruiter from '../views/employers/RecruitersView.vue'
-import employerReport from '../views/employers/ReportView.vue'
-import employerSetting from '../views/employers/SettingView.vue'
-import employerCondidate from '../views/employers/CandidatesView.vue'
+
+import employerViewApplying from '../views/employers/ViewApplying.vue'
+import employerUserManagement from '../views/employers/UerManagement.vue'
 //Admin
+<<<<<<< HEAD
 import adminDashboard from '../views/admins/AdminDashboard.vue'
 import adminReport from '../views/admins/AdminReport.vue'
 import adminSetting from '../views/admins/AdminSetting.vue'
@@ -25,6 +24,8 @@ import adminAuditLog from '../views/admins/AuditLog.vue'
 import adminCompany from '../views/admins/CompanyManagent.vue'
 import adminSystem from '../views/admins/SystemMonitor.vue'
 import userManagement from '../views/admins/UserManagement.vue'
+=======
+>>>>>>> senghun
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,35 +88,57 @@ const router = createRouter({
       component: employerDashboard,
       meta: { layout: 'employer' },
     },
+
     {
-      path: '/employer/condidate',
-      component: employerCondidate,
+      path: '/employer/view-applying',
+      component: employerViewApplying,
       meta: { layout: 'employer' },
     },
     {
-      path: '/employer/company-profile',
-      component: employerCompany,
+      path: '/employer/create-job',
+      component: () => import('../views/employers/CreateJob.vue'),
       meta: { layout: 'employer' },
     },
     {
-      path: '/employer/recruiter',
-      component: employerRecruiter,
+      path: '/employer/user-management',
+      component: employerUserManagement,
       meta: { layout: 'employer' },
     },
-    {
-      path: '/employer/report',
-      component: employerReport,
-      meta: { layout: 'employer' },
-    },
-    {
-      path: '/employer/setting',
-      component: employerSetting,
-      meta: { layout: 'employer' },
-    },
-    //admin
+
+    // admin routes
     {
       path: '/admin/dashboard',
-      component: adminDashboard,
+      component: () => import('../views/admins/AdminReport.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/company-profile',
+      component: () => import('../views/admins/UserManagement.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/condidate',
+      component: () => import('../views/admins/ApplicationManagement.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/recruiter',
+      component: () => import('../views/admins/JobManagent.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/report',
+      component: () => import('../views/admins/AdminReport.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/system-monitoring',
+      component: () => import('../views/admins/SystemMonitor.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/setting',
+      component: () => import('../views/admins/AuthenicationView.vue'),
       meta: { layout: 'admin' },
     },
     {

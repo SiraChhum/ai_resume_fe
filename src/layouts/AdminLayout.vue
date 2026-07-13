@@ -88,6 +88,7 @@ const sidebarOpen = ref(true)
               <span v-show="sidebarOpen">Settings</span>
             </router-link>
           </li>
+<<<<<<< HEAD
           <li>
             <router-link
               to="/admin/audit-log"
@@ -99,6 +100,8 @@ const sidebarOpen = ref(true)
               <span v-show="sidebarOpen">Audit Logs</span>
             </router-link>
           </li>
+=======
+>>>>>>> senghun
         </ul>
       </nav>
     </aside>
