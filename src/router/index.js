@@ -16,9 +16,6 @@ import employerDashboard from '../views/employers/EmployersDashboard.vue'
 import employerViewApplying from '../views/employers/ViewApplying.vue'
 import employerUserManagement from '../views/employers/UerManagement.vue'
 //Admin
-import adminReport from '../views/admins/AdminReport.vue'
-
-import adminSystem from '../views/admins/SystemMonitor.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -100,8 +97,25 @@ const router = createRouter({
 
     // admin routes
     {
-      path: '/admin/dashboard',
-      component: () => import('../views/admins/AdminReport.vue'),
+      path: '/admin/system-monitoring',
+      component: () => import('../views/admins/SystemMonitor.vue'),
+      meta: { layout: 'admin' },
+    },
+    {
+      path: '/admin/user-management',
+      component: () => import('../views/admins/UserManagement.vue'),
+      meta: { layout: 'admin' },
+    },
+
+    {
+      path: '/admin/applicant-management',
+      component: () => import('../views/admins/ApplicantManagement.vue'),
+      meta: { layout: 'admin' },
+    },
+
+    {
+      path: '/admin/job-management',
+      component: () => import('../views/admins/JobManagement.vue'),
       meta: { layout: 'admin' },
     },
 
@@ -114,23 +128,6 @@ const router = createRouter({
     {
       path: '/admin/report',
       component: () => import('../views/admins/AdminReport.vue'),
-      meta: { layout: 'admin' },
-    },
-    {
-      path: '/admin/system-monitoring',
-      component: () => import('../views/admins/SystemMonitor.vue'),
-      meta: { layout: 'admin' },
-    },
-
-    {
-      path: '/admin/report',
-      component: adminReport,
-      meta: { layout: 'admin' },
-    },
-
-    {
-      path: '/admin/system-monitoring',
-      component: adminSystem,
       meta: { layout: 'admin' },
     },
   ],

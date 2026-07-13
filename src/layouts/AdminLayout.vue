@@ -24,13 +24,13 @@ const sidebarOpen = ref(true)
         <ul class="space-y-2">
           <li>
             <router-link
-              to="/admin/dashboard"
+              to="/admin/system-monitoring"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Dashboard</span>
+              <span v-show="sidebarOpen">System Monitoring</span>
             </router-link>
           </li>
           <li>
@@ -46,13 +46,24 @@ const sidebarOpen = ref(true)
           </li>
           <li>
             <router-link
-              to="/admin/cmg"
+              to="/admin/job-management"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Company Mananagent</span>
+              <span v-show="sidebarOpen">Job Mananagent</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/admin/applicant-management"
+              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
+              active-class="bg-blue-600 text-white"
+              exact-active-class="bg-blue-600 text-white"
+            >
+              <i class="pi pi-home" style="font-size: 1rem"></i>
+              <span v-show="sidebarOpen">Applicant Mananagent</span>
             </router-link>
           </li>
           <li>
@@ -63,18 +74,18 @@ const sidebarOpen = ref(true)
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Reports</span>
+              <span v-show="sidebarOpen"> Reporting</span>
             </router-link>
           </li>
           <li>
             <router-link
-              to="/admin/system-monitoring"
+              to="/admin/authentication"
               class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
               active-class="bg-blue-600 text-white"
               exact-active-class="bg-blue-600 text-white"
             >
               <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen"> System Monitoring</span>
+              <span v-show="sidebarOpen"> Authentication</span>
             </router-link>
           </li>
         </ul>

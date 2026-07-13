@@ -5,12 +5,8 @@
       <h1 class="text-xl font-semibold">Welcome</h1>
     </div>
     <div class="flex justify-between items-center gap-4">
-      <input class="w-80 h-10 border rounded-sm text-brown-300" />
-      <div>
-        <p>Search Job</p>
-      </div>
       <router-link to="/employer/dashboard">employer</router-link>
-      <router-link to="/admin/dashboard">Admin</router-link>
+      <router-link to="/admin/system-monitoring">Admin</router-link>
     </div>
     <div class="flex gap-2"></div>
     <DropdownMenu v-model:open="open">
