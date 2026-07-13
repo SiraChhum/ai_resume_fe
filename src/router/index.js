@@ -16,16 +16,9 @@ import employerDashboard from '../views/employers/EmployersDashboard.vue'
 import employerViewApplying from '../views/employers/ViewApplying.vue'
 import employerUserManagement from '../views/employers/UerManagement.vue'
 //Admin
-<<<<<<< HEAD
-import adminDashboard from '../views/admins/AdminDashboard.vue'
 import adminReport from '../views/admins/AdminReport.vue'
-import adminSetting from '../views/admins/AdminSetting.vue'
-import adminAuditLog from '../views/admins/AuditLog.vue'
-import adminCompany from '../views/admins/CompanyManagent.vue'
+
 import adminSystem from '../views/admins/SystemMonitor.vue'
-import userManagement from '../views/admins/UserManagement.vue'
-=======
->>>>>>> senghun
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -111,21 +104,13 @@ const router = createRouter({
       component: () => import('../views/admins/AdminReport.vue'),
       meta: { layout: 'admin' },
     },
+
     {
-      path: '/admin/company-profile',
-      component: () => import('../views/admins/UserManagement.vue'),
+      path: '/admin/authentication',
+      component: () => import('../views/admins/AuthenicationView.vue'),
       meta: { layout: 'admin' },
     },
-    {
-      path: '/admin/condidate',
-      component: () => import('../views/admins/ApplicationManagement.vue'),
-      meta: { layout: 'admin' },
-    },
-    {
-      path: '/admin/recruiter',
-      component: () => import('../views/admins/JobManagent.vue'),
-      meta: { layout: 'admin' },
-    },
+
     {
       path: '/admin/report',
       component: () => import('../views/admins/AdminReport.vue'),
@@ -136,39 +121,16 @@ const router = createRouter({
       component: () => import('../views/admins/SystemMonitor.vue'),
       meta: { layout: 'admin' },
     },
-    {
-      path: '/admin/setting',
-      component: () => import('../views/admins/AuthenicationView.vue'),
-      meta: { layout: 'admin' },
-    },
+
     {
       path: '/admin/report',
       component: adminReport,
       meta: { layout: 'admin' },
     },
-    {
-      path: '/admin/setting',
-      component: adminSetting,
-      meta: { layout: 'admin' },
-    },
-    {
-      path: '/admin/audit-log',
-      component: adminAuditLog,
-      meta: { layout: 'admin' },
-    },
-    {
-      path: '/admin/cmg',
-      component: adminCompany,
-      meta: { layout: 'admin' },
-    },
+
     {
       path: '/admin/system-monitoring',
       component: adminSystem,
-      meta: { layout: 'admin' },
-    },
-    {
-      path: '/admin/user-management',
-      component: userManagement,
       meta: { layout: 'admin' },
     },
   ],

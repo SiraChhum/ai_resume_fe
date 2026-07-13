@@ -77,31 +77,6 @@ const sidebarOpen = ref(true)
               <span v-show="sidebarOpen"> System Monitoring</span>
             </router-link>
           </li>
-          <li>
-            <router-link
-              to="/admin/setting"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Settings</span>
-            </router-link>
-          </li>
-<<<<<<< HEAD
-          <li>
-            <router-link
-              to="/admin/audit-log"
-              class="flex items-center gap-3 rounded-lg px-4 py-3 hover:bg-slate-800"
-              active-class="bg-blue-600 text-white"
-              exact-active-class="bg-blue-600 text-white"
-            >
-              <i class="pi pi-home" style="font-size: 1rem"></i>
-              <span v-show="sidebarOpen">Audit Logs</span>
-            </router-link>
-          </li>
-=======
->>>>>>> senghun
         </ul>
       </nav>
     </aside>
