@@ -9,13 +9,16 @@
             <p class="mt-2 text-sm text-slate-300">Review account activity, access levels, and pending approvals across the platform.</p>
           </div>
           <button class="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100">
-            + Add user
+            <span class="inline-flex items-center gap-2">
+              <i class="pi pi-plus"></i>
+              Create New User
+            </span>
           </button>
         </div>
       </section>
 
-      <section class="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
-        <div class="grid gap-4 md:grid-cols-3">
+      <section class="grid gap-4">
+        <div class="grid gap-4 md:grid-cols-4">
           <div v-for="stat in stats" :key="stat.label" class="rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
             <div class="flex items-center gap-4">
               <div :class="['flex h-12 w-12 items-center justify-center rounded-2xl text-lg text-white', stat.iconBg]">
@@ -30,24 +33,6 @@
           </div>
         </div>
 
-        <div class="rounded-[28px] border border-slate-200 bg-slate-900 p-5 text-white shadow-sm">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Quick access</p>
-              <h2 class="mt-2 text-lg font-semibold">Pending approvals</h2>
-            </div>
-            <span class="rounded-full bg-amber-500/20 px-3 py-1 text-xs font-semibold text-amber-300">6 New</span>
-          </div>
-          <div class="mt-4 space-y-3">
-            <div v-for="item in pendingItems" :key="item.title" class="rounded-2xl bg-white/10 p-3 backdrop-blur">
-              <div class="flex items-center justify-between gap-3">
-                <p class="text-sm font-semibold">{{ item.title }}</p>
-                <span :class="['rounded-full px-2.5 py-1 text-xs font-semibold', item.badgeClass]">{{ item.status }}</span>
-              </div>
-              <p class="mt-2 text-sm text-slate-300">{{ item.time }}</p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section class="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm">
@@ -126,6 +111,28 @@
           </table>
         </div>
       </section>
+
+      <section class="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Recent activity</p>
+            <h2 class="mt-2 text-lg font-semibold text-slate-900">Recent Activity</h2>
+          </div>
+          <a href="#" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">View all</a>
+        </div>
+        <div class="mt-5 space-y-4">
+          <div v-for="activity in recentActivities" :key="activity.title" class="flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <div :class="['mt-1 flex h-11 w-11 items-center justify-center rounded-2xl text-white', activity.iconBg]">
+              <i :class="activity.icon"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-slate-900">{{ activity.title }}</p>
+              <p class="mt-1 text-sm text-slate-500">{{ activity.subtitle }}</p>
+              <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-400">{{ activity.time }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -140,45 +147,31 @@ const searchQuery = ref('')
 const stats = ref([
   {
     label: 'Total users',
-    value: '1,248',
-    subtitle: 'Registered accounts',
+    value: '1,284',
+    subtitle: '+12% from last month',
     icon: 'pi pi-users',
     iconBg: 'bg-indigo-600',
   },
   {
-    label: 'Active today',
-    value: '324',
-    subtitle: 'Users logged in this day',
-    icon: 'pi pi-check-circle',
+    label: 'Active now',
+    value: '42',
+    subtitle: 'System online',
+    icon: 'pi pi-circle-fill',
     iconBg: 'bg-emerald-600',
   },
   {
-    label: 'Pending approval',
+    label: 'Pending invites',
     value: '18',
-    subtitle: 'Awaiting admin review',
-    icon: 'pi pi-clock',
-    iconBg: 'bg-amber-500',
-  },
-])
-
-const pendingItems = ref([
-  {
-    title: 'New recruiter onboarding',
-    status: 'Pending',
-    badgeClass: 'bg-amber-500/20 text-amber-300',
-    time: '12 mins ago',
+    subtitle: 'Expiring within 24h',
+    icon: 'pi pi-envelope',
+    iconBg: 'bg-sky-600',
   },
   {
-    title: 'Employer verification request',
-    status: 'Review',
-    badgeClass: 'bg-sky-500/20 text-sky-300',
-    time: '35 mins ago',
-  },
-  {
-    title: 'Account recovery follow-up',
-    status: 'New',
-    badgeClass: 'bg-rose-500/20 text-rose-300',
-    time: '1 hour ago',
+    label: 'Security alerts',
+    value: '3',
+    subtitle: 'Failed login attempts',
+    icon: 'pi pi-shield',
+    iconBg: 'bg-rose-500',
   },
 ])
 
@@ -222,6 +215,30 @@ const users = ref([
     lastActive: '3d ago',
     department: 'Compliance',
     avatar: 'https://i.pravatar.cc/150?img=20',
+  },
+])
+
+const recentActivities = ref([
+  {
+    title: 'Julian Sterling created a new Recruiter account for Sienna West.',
+    subtitle: 'User account created successfully',
+    time: '2 hours ago',
+    icon: 'pi pi-user-plus',
+    iconBg: 'bg-rose-500',
+  },
+  {
+    title: 'System triggered password reset for Marcus Thorne due to inactivity.',
+    subtitle: 'Security process initiated',
+    time: '5 hours ago',
+    icon: 'pi pi-shield',
+    iconBg: 'bg-sky-500',
+  },
+  {
+    title: 'Elena Rodriguez updated permissions for User Management module.',
+    subtitle: 'Permissions updated',
+    time: '8 hours ago',
+    icon: 'pi pi-pencil',
+    iconBg: 'bg-amber-500',
   },
 ])
 
