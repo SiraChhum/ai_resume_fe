@@ -4,6 +4,8 @@
 @import 'tailwindcss';
 @import 'primeicons/primeicons.css';
 @import "tw-animate-css";
+@import "primeicons/primeicons.css";
+
 
 @custom-variant dark (&:is(.dark *));
 

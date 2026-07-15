@@ -1,3 +1,3 @@
 <template>
-  <p>Authgce</p>
+  <p>Setting</p>
 </template>

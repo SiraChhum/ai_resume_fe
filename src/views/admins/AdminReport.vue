@@ -6,6 +6,7 @@
           class="flex flex-col gap-4 border-b border-slate-200 p-6 lg:flex-row lg:items-center lg:justify-between"
         >
           <div>
+<<<<<<< HEAD
             <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
               Analytics
             </p>
@@ -19,6 +20,26 @@
           >
             Export report
           </button>
+=======
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Analytics</p>
+            <h1 class="mt-2 text-3xl font-semibold text-slate-900">System Overview</h1>
+            <p class="mt-2 text-sm text-slate-500">Review platform performance, hiring activity, and growth trends at a glance.</p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button class="rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">
+              <span class="inline-flex items-center gap-2">
+                <i class="pi pi-download"></i>
+                Export PDF
+              </span>
+            </button>
+            <button class="rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">
+              <span class="inline-flex items-center gap-2">
+                <i class="pi pi-plus"></i>
+                New Job Post
+              </span>
+            </button>
+          </div>
+>>>>>>> senghun
         </div>
 
         <div class="grid gap-4 p-6 md:grid-cols-2 xl:grid-cols-4">
@@ -48,11 +69,17 @@
 
       <section class="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
         <div class="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Trend</p>
-              <h2 class="mt-2 text-lg font-semibold text-slate-900">Weekly growth</h2>
+              <p class="text-xs uppercase tracking-[0.24em] text-slate-400">System Activity Report</p>
+              <h2 class="mt-2 text-lg font-semibold text-slate-900">Activity overview</h2>
             </div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 p-1">
+              <button class="rounded-full px-3 py-1 text-xs font-semibold text-slate-600 transition hover:bg-slate-200">7D</button>
+              <button class="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white shadow-sm">30D</button>
+              <button class="rounded-full px-3 py-1 text-xs font-semibold text-slate-600 transition hover:bg-slate-200">90D</button>
+            </div>
+<<<<<<< HEAD
             <span
               class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700"
               >+18.4%</span
@@ -76,17 +103,34 @@
               <circle cx="220" cy="108" r="5" fill="#4f46e5" />
               <circle cx="340" cy="78" r="5" fill="#4f46e5" />
             </svg>
+=======
+          </div>
+
+          <div class="mt-6 rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+            <div class="flex items-end justify-between gap-3 h-52">
+              <div class="flex w-full items-end gap-3">
+                <div class="h-24 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-28 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-32 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-20 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-28 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-24 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+                <div class="h-34 w-full max-w-[38px] rounded-t-3xl bg-slate-700"></div>
+              </div>
+            </div>
+>>>>>>> senghun
           </div>
         </div>
 
         <div class="rounded-[32px] border border-slate-200 bg-slate-900 p-6 text-white shadow-sm">
           <div class="flex items-center justify-between">
             <div>
-              <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Highlights</p>
-              <h2 class="mt-2 text-lg font-semibold">Top performing roles</h2>
+              <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Recent activity</p>
+              <h2 class="mt-2 text-lg font-semibold">Latest updates</h2>
             </div>
           </div>
           <div class="mt-5 space-y-3">
+<<<<<<< HEAD
             <div
               v-for="item in highlights"
               :key="item.title"
@@ -95,8 +139,17 @@
               <div class="flex items-center justify-between gap-3">
                 <p class="text-sm font-semibold">{{ item.title }}</p>
                 <span class="text-xs text-slate-300">{{ item.value }}</span>
+=======
+            <div v-for="item in highlights" :key="item.title" class="flex items-start gap-3 rounded-2xl border border-slate-700 bg-white/5 p-4 backdrop-blur">
+              <div :class="['mt-1 flex h-10 w-10 items-center justify-center rounded-full text-white', item.iconBg]">
+                <i :class="item.icon"></i>
               </div>
-              <p class="mt-2 text-sm text-slate-300">{{ item.subtitle }}</p>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-white">{{ item.title }}</p>
+                <p class="mt-1 text-sm text-slate-300">{{ item.subtitle }}</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-400">{{ item.time }}</p>
+>>>>>>> senghun
+              </div>
             </div>
           </div>
         </div>
@@ -191,6 +244,7 @@ const stats = ref([
 ])
 
 const highlights = ref([
+<<<<<<< HEAD
   {
     title: 'Senior Frontend Engineer',
     value: '124 applicants',
@@ -198,6 +252,11 @@ const highlights = ref([
   },
   { title: 'Product Designer', value: '98 applicants', subtitle: 'Fastest interview turnaround' },
   { title: 'Data Analyst', value: '76 applicants', subtitle: 'Strong conversion from referrals' },
+=======
+  { title: 'New User Registration', subtitle: 'Sarah Jenkins registered from London, UK.', time: '2 minutes ago', icon: 'pi pi-user-plus', iconBg: 'bg-emerald-500' },
+  { title: 'Job Post Approved', subtitle: 'Senior Cloud Architect for Global Systems Inc.', time: '15 minutes ago', icon: 'pi pi-check-circle', iconBg: 'bg-sky-500' },
+  { title: 'Flagged Applicant', subtitle: 'Duplicate profile detected for ID #49281.', time: '1 hour ago', icon: 'pi pi-exclamation-triangle', iconBg: 'bg-amber-500' },
+>>>>>>> senghun
 ])
 
 const funnel = ref([

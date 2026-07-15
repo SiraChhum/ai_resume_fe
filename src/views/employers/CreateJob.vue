@@ -1,38 +1,6 @@
 <template>
   <div class="min-h-screen bg-slate-100 p-6">
     <div class="max-w-[1400px] mx-auto space-y-6">
-      <div class="rounded-[32px] bg-white p-6 shadow-sm border border-slate-200">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 class="text-3xl font-semibold text-slate-900">Create Job Offer</h1>
-            <p class="mt-2 text-sm text-slate-500">
-              Fill in the job details to post a new job and attract the right candidates.
-            </p>
-          </div>
-          <div class="text-sm font-medium text-slate-500">Step {{ currentStep }} of 5</div>
-        </div>
-
-        <div class="mt-6 overflow-x-auto">
-          <div class="flex min-w-[600px] gap-3">
-            <button
-              v-for="step in steps"
-              :key="step.id"
-              type="button"
-              class="flex items-center gap-3 rounded-full border px-4 py-3 text-sm font-semibold transition"
-              :class="currentStep === step.id ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-200 bg-white text-slate-500 hover:bg-slate-50'"
-              @click="currentStep = step.id"
-            >
-              <span class="flex h-8 w-8 items-center justify-center rounded-full border text-sm"
-                :class="currentStep === step.id ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300 bg-white text-slate-500'"
-              >
-                {{ step.id }}
-              </span>
-              {{ step.label }}
-            </button>
-          </div>
-        </div>
-      </div>
-
       <div class="grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-6">
         <section class="space-y-6 rounded-[32px] bg-white p-6 shadow-sm border border-slate-200">
           <div class="rounded-[28px] border border-slate-200 p-6 space-y-6">
@@ -209,7 +177,6 @@
           <button
             class="w-full rounded-full bg-indigo-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
             type="button"
-            @click="gotoNextStep"
           >
             Continue to Next Step →
           </button>
@@ -220,16 +187,7 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref } from 'vue'
-
-const currentStep = ref(1)
-const steps = [
-  { id: 1, label: 'Job Information' },
-  { id: 2, label: 'Job Details' },
-  { id: 3, label: 'Requirements' },
-  { id: 4, label: 'Benefits' },
-  { id: 5, label: 'Review & Publish' },
-]
+import { computed, reactive } from 'vue'
 
 const form = reactive({
   title: '',
@@ -258,9 +216,4 @@ const previewRequirements = computed(() => [
   'Ability to meet deadlines.',
 ])
 
-const gotoNextStep = () => {
-  if (currentStep.value < steps.length) {
-    currentStep.value += 1
-  }
-}
 </script>
