@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue'
+import 'primeicons/primeicons.css'
 
 const stats = ref([
   {
     title: 'Total Applications',
     value: 18,
     color: 'bg-blue-500',
-    icon: '💼',
+    icon: 'pi pi-file',
     footer: 'All times',
     footerColor: 'text-gray-400',
   },
@@ -14,7 +15,7 @@ const stats = ref([
     title: 'Under Review',
     value: 18,
     color: 'bg-orange-400',
-    icon: '👁',
+    icon: 'pi pi-eye',
     footer: '12% this month',
     footerColor: 'text-green-500',
   },
@@ -22,7 +23,7 @@ const stats = ref([
     title: 'Interviews',
     value: 18,
     color: 'bg-indigo-500',
-    icon: '📄',
+    icon: 'pi pi-download',
     footer: '40% of total',
     footerColor: 'text-orange-500',
   },
@@ -30,7 +31,7 @@ const stats = ref([
     title: 'Offers',
     value: 18,
     color: 'bg-green-400',
-    icon: '✔',
+    icon: 'pi pi-check',
     footer: '20% of total',
     footerColor: 'text-pink-500',
   },
@@ -38,7 +39,7 @@ const stats = ref([
     title: 'Rejected',
     value: 18,
     color: 'bg-red-400',
-    icon: '✖',
+    icon: 'pi pi-times',
     footer: '30% of total',
     footerColor: 'text-green-500',
   },
@@ -106,7 +107,7 @@ const badgeClass = (status) => {
             :class="card.color"
             class="flex h-11 w-11 items-center justify-center rounded-xl text-white text-lg"
           >
-            {{ card.icon }}
+            <i :class="card.icon" class="text-3xl" :style="{ color: card.color }"></i>
           </div>
 
           <div>

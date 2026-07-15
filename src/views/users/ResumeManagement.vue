@@ -2,17 +2,8 @@
 import { ref } from 'vue'
 import 'primeicons/primeicons.css'
 import { useToast } from 'vue-toastification'
-import { Button } from '@/components/ui/button'
-
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/sheet'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Sheet, SheetContent } from '@/components/ui/sheet'
 const open = ref(false)
 
 const toast = useToast()
@@ -29,6 +20,33 @@ const handleDetailPreview = (resume) => {
 // const showInfo = () => {
 //   toast.info('Unset as default successfully')
 // }
+
+const file = ref(null)
+const fileInput = ref(null)
+const loadingDialog = ref(false)
+
+const openFilePicker = () => {
+  fileInput.value?.click()
+}
+
+const handleFile = (e) => {
+  const selectedFile = e.target.files?.[0]
+  if (!selectedFile) return
+
+  file.value = selectedFile
+
+  // Open loading dialog
+  loadingDialog.value = true
+
+  // Fake loading (3 seconds)
+  setTimeout(() => {
+    loadingDialog.value = false
+
+    // Navigate or show success here
+    // router.push('/match-result')
+    // toast.success('Resume matched successfully!')
+  }, 3000)
+}
 
 const stats = [
   {
@@ -69,6 +87,7 @@ const resumes = ref([
     size: '245 KB',
     score: 92,
     saved: false,
+    defaulted: false,
     image:
       'https://static.cvwhizz.co.uk/assets/templates/thumbnails/en/withPhoto/munich-736x1041.webp',
     tags: ['React.js', 'Node.js', 'JavaScript', 'TypeScript', 'MongoDB'],
@@ -80,6 +99,7 @@ const resumes = ref([
     size: '205 KB',
     score: 85,
     saved: false,
+    defaulted: false,
     image:
       'https://resumesector.com/wp-content/uploads/2024/10/professional-cv-template-free-download-word-and-psd.jpg',
     tags: ['React.js', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
@@ -91,6 +111,7 @@ const resumes = ref([
     size: '295 KB',
     score: 85,
     saved: false,
+    defaulted: false,
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWx1zITTLMtRiHUSsKsjAPuLpfd45xL_vfDj6xDqIpT0P0RGDHlvS0ks&s=10',
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'AWS'],
@@ -126,8 +147,8 @@ const activities = [
   },
 ]
 const saveResume = (resume) => {
-  resume.defulted = !resume.defulted
-  if (resume.defulted) {
+  resume.defaulted = !resume.defaulted
+  if (resume.defaulted) {
     toast.success('Set as default successfully!')
   } else {
     toast.info('Unset as default successfully')
@@ -173,7 +194,7 @@ const saveResume = (resume) => {
           <div v-for="resume in resumes" :key="resume.id" class="border-b last:border-none py-6">
             <div class="flex flex-col lg:flex-row gap-6">
               <!-- Thumbnail -->
-              <div class="flex-shrink-0">
+              <div class="shrink-0">
                 <img :src="resume.image" class="w-24 rounded border" />
               </div>
 
@@ -232,19 +253,22 @@ const saveResume = (resume) => {
                   @click="saveResume(resume)"
                   :class="[
                     ' rounded-lg px-6 py-2 text-white transition duration-300 ',
-                    resume.defulted
+                    resume.defaulted
                       ? 'bg-gray-500 hover:bg-gray-600'
                       : 'bg-green-600 hover:bg-green-700',
                   ]"
                 >
-                  {{ resume.defulted ? 'Defulted' : 'Set As Default' }}
+                  {{ resume.defaulted ? 'Defaulted' : 'Set As Default' }}
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Upload -->
-          <div class="mt-8 border-2 border-dashed border-indigo-400 rounded-2xl p-8">
+          <div
+            class="mt-8 border-2 border-dashed border-indigo-400 rounded-2xl p-8 cursor-pointer hover:border-indigo-600 transition"
+            @click="openFilePicker"
+          >
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
               <div class="flex items-center gap-5">
                 <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center">
@@ -253,21 +277,50 @@ const saveResume = (resume) => {
 
                 <div>
                   <h3 class="text-xl font-semibold">Click or drag your resume here</h3>
-
                   <p class="text-gray-500 mt-1">Supports PDF, DOC, DOCX (Max 20MB)</p>
+
+                  <p v-if="file" class="mt-2 text-sm text-indigo-600 font-medium">
+                    {{ file.name }}
+                  </p>
                 </div>
               </div>
 
               <button
+                type="button"
+                @click.stop="openFilePicker"
                 class="bg-indigo-600 text-white px-8 py-3 rounded-xl hover:bg-indigo-700 transition"
               >
                 Choose File
               </button>
             </div>
+
+            <!-- Hidden Input -->
+            <input
+              ref="fileInput"
+              type="file"
+              class="hidden"
+              accept=".pdf,.doc,.docx"
+              @change="handleFile"
+            />
           </div>
         </div>
       </div>
+      <Dialog v-model:open="loadingDialog">
+        <DialogContent class="sm:max-w-md">
+          <div class="flex flex-col items-center py-8">
+            <!-- Spinner -->
+            <div
+              class="w-14 h-14 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"
+            ></div>
 
+            <h2 class="mt-6 text-xl font-semibold">Matching Your Resume</h2>
+
+            <p class="mt-2 text-center text-gray-500">
+              Please wait while we analyze your resume and find the best job matches...
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
       <!-- RIGHT -->
       <div class="xl:col-span-4 space-y-6">
         <!-- Analysis -->

@@ -1,6 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+const search = ref('')
+const filteredJobs = computed(() => {
+  return (jobs.value ?? []).filter((job) =>
+    job.title.toLowerCase().includes(search.value.toLowerCase()),
+  )
+})
+
 const stats = ref([
   {
     title: 'Save Jobs',
@@ -30,7 +37,7 @@ const stats = ref([
     subtitleColor: 'text-orange-500',
   },
 ])
-const jobs = [
+const jobs = ref([
   {
     id: 1,
     logo: 'ABA',
@@ -49,7 +56,7 @@ const jobs = [
     logo: '🦅',
     logoBg: 'bg-[#1D3557]',
     company: 'ACLEDA Bank',
-    title: 'Senior Full Stack Developer',
+    title: 'Senior Backend Developer',
     location: 'Phnom Penh, Cambodia',
     type: 'Full Time',
     mode: 'Hybrid',
@@ -62,7 +69,7 @@ const jobs = [
     logo: 'Wing',
     logoBg: 'bg-lime-500',
     company: 'Wing Bank',
-    title: 'Senior Full Stack Developer',
+    title: 'Senior Frontend Developer',
     location: 'Phnom Penh, Cambodia',
     type: 'Full Time',
     mode: 'Hybrid',
@@ -70,7 +77,7 @@ const jobs = [
     skills: ['React.js', 'Node.js', 'TypeScript', 'MongoDB', 'AWS'],
     saved: 'Saved on 15 May 2026',
   },
-]
+])
 
 const filters = ref(['All', 'Full Time', 'Part Time', 'Remote', 'Hybrid'])
 
@@ -120,6 +127,7 @@ const activeFilter = ref('All')
 
         <div class="relative w-72">
           <input
+            v-model="search"
             type="text"
             placeholder="Search job..."
             class="w-full rounded-xl border-2 border-indigo-500 py-2 pl-10 pr-4 outline-none focus:ring-2 focus:ring-indigo-300"
@@ -173,7 +181,11 @@ const activeFilter = ref('All')
     </div>
 
     <div class="mt-3 space-y-2">
-      <div v-for="job in jobs" :key="job.id" class="rounded-xl bg-white shadow hover:shadow-md">
+      <div
+        v-for="job in filteredJobs"
+        :key="job.id"
+        class="rounded-xl bg-white shadow hover:shadow-md"
+      >
         <div class="flex items-center p-3">
           <!-- Logo -->
           <div

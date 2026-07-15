@@ -24,11 +24,20 @@
           </div>
         </div>
 
+        <input
+          ref="fileInput"
+          type="file"
+          accept=".pdf,.doc,.docx"
+          class="hidden"
+          @change="handleFile"
+        />
+
         <button
-          @click="open = true"
-          class="bg-[#4452FE] text-white border-none px-6 py-3 rounded-lg font-semibold cursor-pointer shadow-[0_4px_10px_rgba(68,82,254,0.2)] flex items-center gap-2"
+          @click="openFilePicker"
+          class="bg-[#4452FE] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-[0_4px_10px_rgba(68,82,254,0.2)]"
         >
-          <i class="fa-solid fa-cloud-arrow-up"></i> Upload New Resume
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          Upload New Resume
         </button>
       </div>
 
@@ -220,18 +229,21 @@
         </div>
       </section>
     </main>
-    <Dialog v-model:open="open">
-      <form>
-        <DialogContent>
-          <FileUplaod />
-          <DialogFooter>
-            <DialogClose as-child>
-              <Button variant="outline"> Cancel </Button>
-            </DialogClose>
-            <Button type="submit"> Save changes </Button>
-          </DialogFooter>
-        </DialogContent>
-      </form>
+    <Dialog v-model:open="loadingDialog">
+      <DialogContent class="sm:max-w-md">
+        <div class="flex flex-col items-center py-8">
+          <!-- Spinner -->
+          <div
+            class="w-14 h-14 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"
+          ></div>
+
+          <h2 class="mt-6 text-xl font-semibold">Matching Your Resume</h2>
+
+          <p class="mt-2 text-center text-gray-500">
+            Please wait while we analyze your resume and find the best job matches...
+          </p>
+        </div>
+      </DialogContent>
     </Dialog>
   </div>
 </template>
@@ -239,11 +251,32 @@
 <script setup>
 import { ref } from 'vue'
 import { FileText, Briefcase, Target, Clock3 } from 'lucide-vue-next'
-import FileUplaod from '@/components/resume/FileUplaod.vue'
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogClose, DialogContent, DialogFooter } from '@/components/ui/dialog'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 
-const open = ref(false)
+const file = ref(null)
+const loadingDialog = ref(false)
+
+const fileInput = ref(null)
+
+const openFilePicker = () => {
+  fileInput.value?.click()
+}
+
+const handleFile = (e) => {
+  const selectedFile = e.target.files?.[0]
+  if (!selectedFile) return
+
+  file.value = selectedFile
+
+  loadingDialog.value = true
+
+  setTimeout(() => {
+    loadingDialog.value = false
+
+    // Reset so the same file can be selected again
+    e.target.value = ''
+  }, 3000)
+}
 const stats = ref([
   {
     label: 'Total Applications',
