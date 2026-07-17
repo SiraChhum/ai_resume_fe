@@ -305,7 +305,7 @@ const saveResume = (resume) => {
           </div>
         </div>
       </div>
-      <Dialog v-model:open="loadingDialog">
+      <Dialog :open="loadingDialog" @openChange="loadingDialog = $event">
         <DialogContent class="sm:max-w-md">
           <div class="flex flex-col items-center py-8">
             <!-- Spinner -->

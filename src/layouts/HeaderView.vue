@@ -7,6 +7,7 @@
     <div class="flex justify-between items-center gap-4">
       <router-link to="/employer/dashboard">employer</router-link>
       <router-link to="/admin/system-monitoring">Admin</router-link>
+      <router-link to="/recruiter/jobs">recruiter</router-link>
     </div>
     <div class="flex gap-2"></div>
     <DropdownMenu v-model:open="open">

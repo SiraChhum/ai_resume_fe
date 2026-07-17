@@ -13,6 +13,7 @@ import UserLayout from './layouts/UserLayout.vue'
 import EmployerLayout from './layouts/EmployerLayout,.vue'
 import LoadingOverlay from './components/LoadingOverlay.vue'
 import AdminLayout from './layouts/AdminLayout.vue'
+import RecruiterView from './layouts/RecruiterView.vue'
 
 const route = useRoute()
 
@@ -20,6 +21,7 @@ const layouts = {
   user: UserLayout,
   employer: EmployerLayout,
   admin: AdminLayout,
+  recruiter: RecruiterView,
   none: 'div', // 👈 Maps 'none' to a plain standard HTML tag
 }
 

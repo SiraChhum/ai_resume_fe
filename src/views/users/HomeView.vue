@@ -32,13 +32,35 @@
           @change="handleFile"
         />
 
-        <button
-          @click="openFilePicker"
-          class="bg-[#4452FE] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-[0_4px_10px_rgba(68,82,254,0.2)]"
-        >
-          <i class="fa-solid fa-cloud-arrow-up"></i>
-          Upload New Resume
-        </button>
+        <div class="flex items-center gap-3 flex-wrap">
+          <button
+            @click="testApiConnection"
+            class="bg-[#0F766E] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-[0_4px_10px_rgba(15,118,110,0.2)]"
+          >
+            <i class="fa-solid fa-plug-circle-bolt"></i>
+            Test API
+          </button>
+
+          <button
+            @click="openFilePicker"
+            class="bg-[#4452FE] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 shadow-[0_4px_10px_rgba(68,82,254,0.2)]"
+          >
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            Upload New Resume
+          </button>
+        </div>
+      </div>
+
+      <div
+        v-if="apiStatus"
+        class="rounded-lg border px-4 py-3 text-sm"
+        :class="
+          apiStatus.type === 'error'
+            ? 'bg-red-50 border-red-200 text-red-700'
+            : 'bg-emerald-50 border-emerald-200 text-emerald-700'
+        "
+      >
+        {{ apiStatus.message }}
       </div>
 
       <!-- Main Content Split Grid -->
@@ -252,9 +274,13 @@
 import { ref } from 'vue'
 import { FileText, Briefcase, Target, Clock3 } from 'lucide-vue-next'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
 
 const file = ref(null)
 const loadingDialog = ref(false)
+const apiStatus = ref(null)
 
 const fileInput = ref(null)
 
@@ -276,6 +302,23 @@ const handleFile = (e) => {
     // Reset so the same file can be selected again
     e.target.value = ''
   }, 3000)
+}
+
+const testApiConnection = async () => {
+  apiStatus.value = { type: 'loading', message: 'Testing connection...' }
+
+  try {
+    const response = await authStore.login({ email: 'admin@example.com', password: 'password' })
+    apiStatus.value = {
+      type: 'success',
+      message: `Connected successfully. Token received: ${response?.token ? 'yes' : 'no'}`,
+    }
+  } catch (error) {
+    apiStatus.value = {
+      type: 'error',
+      message: `Connection failed: ${error?.message || 'Unknown error'}`,
+    }
+  }
 }
 const stats = ref([
   {

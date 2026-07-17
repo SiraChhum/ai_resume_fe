@@ -130,6 +130,28 @@ const router = createRouter({
       component: () => import('../views/admins/AdminReport.vue'),
       meta: { layout: 'admin' },
     },
+
+    //recruiter routes
+    {
+      path: '/recruiter/jobs',
+      component: () => import('../views/recruiters/JobView.vue'),
+      meta: { layout: 'recruiter' },
+    },
+    {
+      path: '/recruiter/applications',
+      component: () => import('../views/recruiters/ApplicationView.vue'),
+      meta: { layout: 'recruiter' },
+    },
+    {
+      path: '/recruiter/interviews',
+      component: () => import('../views/recruiters/InterviewView.vue'),
+      meta: { layout: 'recruiter' },
+    },
+    {
+      path: '/recruiter/alerts',
+      component: () => import('../views/recruiters/AlertView.vue'),
+      meta: { layout: 'recruiter' },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     const scrollContainer = document.querySelector('main')
